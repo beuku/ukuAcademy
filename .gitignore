@@ -1,0 +1,57 @@
+# SERVER IGNORE
+/server/node_modules
+/server/.env
+
+# CLIENT IGNORE
+# Logs
+/vite-project/logs
+/vite-project/*.log
+/vite-project/npm-debug.log*
+/vite-project/yarn-debug.log*
+/vite-project/yarn-error.log*
+/vite-project/pnpm-debug.log*
+/vite-project/lerna-debug.log*
+
+/vite-project/node_modules
+/vite-project/dist
+/vite-project/dist-ssr
+/vite-project/*.local
+
+# Editor directories and files
+/vite-project/.vscode/*
+/vite-project/!.vscode/extensions.json
+/vite-project/.idea
+/vite-project/.DS_Store
+/vite-project/*.suo
+/vite-project/*.ntvs*
+/vite-project/*.njsproj
+/vite-project/*.sln
+/vite-project/*.sw?
+
+# ------------------------------------------------------------------------------------------------------------
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+

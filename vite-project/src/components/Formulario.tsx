@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import {
     Box,
     TextField,
@@ -33,10 +34,20 @@ const Formulario: React.FC = () => {
         });
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         console.log('Datos del formulario:', formData);
         // Aquí podrías guardar los datos en Firebase o cualquier backend.
+        try {
+            const response = await axios.post('http://localhost:4000/',formData);
+
+            if(response.status == 200) {
+                alert('Formulario enviado correctamente');
+            }
+        } catch (error) {
+            console.log('Error al enviar el formulario: ', error);
+            alert('Error al enviar el formulario');
+        }
     };
 
     return (
