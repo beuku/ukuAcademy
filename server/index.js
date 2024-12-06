@@ -2,16 +2,15 @@ const express = require('express');
 const app = express();
 app.use(express.json());
 
-const cors = require('cors');
-app.use(cors());
+require('./db/connect');
+const Users = require('./modelo/User');
 
-require('./db/connection');
-const Forms = require('./Models/Form')
 
 app.post("/", async(req,res)=> {
-    let form = new Forms(req.body);
-    let result = await form.save();
+    let user = new Users(req.body);
+    let result = await user.save();
     res.send(result);
+
 })
 
-app.listen(4000);
+app.listen(3001);
