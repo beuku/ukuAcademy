@@ -2,8 +2,13 @@ const express = require('express');
 const app = express();
 app.use(express.json());
 
-require('./db/connect');
-const Users = require('./modelo/User');
+const cors = require('cors');
+app.use(cors());
+
+
+
+require('./db/connection');
+const Users = require('./models/cliente');
 
 
 app.post("/", async(req,res)=> {
@@ -13,4 +18,4 @@ app.post("/", async(req,res)=> {
 
 })
 
-app.listen(3001);
+app.listen(4000);

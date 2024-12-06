@@ -13,7 +13,23 @@ export default function Form() {
     const [comentario, setComentario] = useState("");
 
 
-//AAAAAAAAAAAAAAAAAA
+    const collectData = async (e)=> {
+      e.preventDefault();
+      try{
+        const response = await fetch('http://localhost:4000',{
+          method: 'post' ,
+          body: JSON.stringify({nombre,apellido,rut,correo,comentario}),
+          headers:{
+            'Content-Type': 'application/json'
+          },
+        });
+      const result = await response.json();
+    console.log(result);;
+  }catch(error){
+    console.log(error);
+  }
+    }
+
 
 
     return (
@@ -57,7 +73,7 @@ export default function Form() {
                   </textarea>
                 </div>
 
-                <button type="submit" className="btn btn-primary w-100">Guardar</button>
+                <button onClick={collectData} type="submit" className="btn btn-primary w-100">Guardar</button>
               </form>
          
     );
