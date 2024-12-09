@@ -7,5 +7,16 @@ const   clinetShema = new  mongoose.Schema({
   rut:String,
   email:String,
   comentario:String
+},{
+  collection:"clientes",
+
+},{
+  methods:{
+    
+    findDocuments() {
+      return mongoose.model('Cliente').find({});
+  }
+}
 });
 module.exports= mongoose.model("Cliente",clinetShema);
+

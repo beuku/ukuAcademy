@@ -1,5 +1,10 @@
 const express = require('express');
+
 const app = express();
+
+
+
+
 app.use(express.json());
 
 const cors = require('cors');
@@ -13,4 +18,12 @@ app.post("/", async(req,res)=>{
   let result = await cliente.save();
   res.send(result);
 })
+
+app.get('/', async(res)=>{
+  let cliente = new Cliente();
+  let result = await cliente.;
+  res.send(result);
+
+})
+
 app.listen(4000);
