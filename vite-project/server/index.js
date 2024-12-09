@@ -1,10 +1,5 @@
 const express = require('express');
-
 const app = express();
-
-
-
-
 app.use(express.json());
 
 const cors = require('cors');
@@ -19,11 +14,13 @@ app.post("/", async(req,res)=>{
   res.send(result);
 })
 
-app.get('/', async(res)=>{
-  let cliente = new Cliente();
-  let result = await cliente.;
-  res.send(result);
-
-})
+app.get('/', async (req, res) => {
+  try {
+    const formularios = await Cliente.find({});
+    res.status(200).json(formularios);
+  } catch (error) {
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
 
 app.listen(4000);
