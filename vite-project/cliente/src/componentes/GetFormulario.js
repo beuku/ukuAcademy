@@ -1,12 +1,48 @@
-
+import React, {useEffect, useState } from "react";
+import './style.css'
+import Headercom from "./Header"
 
 function GetFormulario() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchFormulario = async () => {
+      try {
+        const response = await fetch("http://localhost:4000/formularios"); 
+        if (!response.ok) {
+          throw new Error(`Error: ${response.status}`);
+        }
+        const result = await response.json();
+        setData(result);
+      } catch (err) {
+        console.log(err.message);
+      }
+    };
+  console.log(data);
+    fetchFormulario();
+  }, []);
+
   return (
-
-    <div>GetFormulario</div>
-    
-
-  )
+   <>
+   <Headercom></Headercom>
+    <div>
+ <h3>GetFormulario</h3>
+      <div className="com">
+        {data.map((item, index)=>(
+        <div key={index} className="item">
+        <p><strong>ID:</strong>{item._id}</p>
+        <p><strong>Nombre:</strong>{item.name}</p>
+        <p><strong>Apellido:</strong>{item.apellido}</p>
+        <p><strong>Rut:</strong>{item.rut}</p>
+        <p><strong>Email:</strong>{item.email}</p>
+        <p><strong>Comentario:</strong>{item.comentario}</p>
+        </div>
+        ))}
+      </div>
+      
+      </div> 
+      </>
+  );
 }
 
 export default GetFormulario

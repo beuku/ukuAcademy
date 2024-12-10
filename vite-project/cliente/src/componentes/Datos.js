@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button } from '@mui/material'
 import './style.css'
+import Headercom from "./Header";
 
 const Formulario = () => {
  const [name, setname] = useState("");
@@ -28,7 +29,10 @@ const collectData = async (e) =>{
 
 
   return (
+    <>
+    <Headercom></Headercom>
     <div className="comtainer">
+
     <form  >
       <h3 className="text-center pt-3">Formulario</h3>
       <div className="md-3">
@@ -107,6 +111,7 @@ const collectData = async (e) =>{
       </Button>
     </form>
     </div>
+    </>
   );
 };
 

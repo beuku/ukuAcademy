@@ -1,0 +1,16 @@
+.header{
+    background-color: rgb(41, 214, 233);
+    color: rgb(31, 31, 26);
+    padding: 10px;
+}
+.title{
+    text-align: center;
+}
+.link-list{
+    display: flex;
+    justify-content: space-around;
+    .link{
+        color: rgb(37, 37, 22);
+        text-decoration: none;
+    }
+}

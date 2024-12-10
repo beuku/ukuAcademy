@@ -9,6 +9,23 @@
 
   border-radius: 0.5rem;
 }
+.item {
+  margin: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+}
+.item p {
+  margin: 5px 0;
+  color: #555;
+}
+
+
+
+
+
 form{
     
     text-align: left;

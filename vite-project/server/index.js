@@ -14,9 +14,10 @@ app.post("/", async(req,res)=>{
   res.send(result);
 })
 
-app.get('/', async (req, res) => {
+app.get('/formularios', async (req, res) => {
   try {
     const formularios = await Cliente.find({});
+    console.log(formularios)
     res.status(200).json(formularios);
   } catch (error) {
     res.status(500).json({ error: 'Internal Server Error' });
