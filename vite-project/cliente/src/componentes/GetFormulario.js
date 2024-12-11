@@ -1,6 +1,8 @@
 import React, {useEffect, useState } from "react";
 import './style.css'
 import Headercom from "./Header"
+import { Button } from '@mui/material'
+
 
 function GetFormulario() {
   const [data, setData] = useState([]);
@@ -27,16 +29,27 @@ function GetFormulario() {
    <Headercom></Headercom>
     <div>
  <h3>GetFormulario</h3>
-      <div className="com">
+      <div>
         {data.map((item, index)=>(
         <div key={index} className="item">
-        <p><strong>ID:</strong>{item._id}</p>
-        <p><strong>Nombre:</strong>{item.name}</p>
-        <p><strong>Apellido:</strong>{item.apellido}</p>
-        <p><strong>Rut:</strong>{item.rut}</p>
-        <p><strong>Email:</strong>{item.email}</p>
-        <p><strong>Comentario:</strong>{item.comentario}</p>
+          <p><strong>ID:</strong>{item._id}</p>
+          <p><strong>Nombre:</strong>{item.name}</p>
+          <p><strong>Apellido:</strong>{item.apellido}</p>
+          <p><strong>Rut:</strong>{item.rut}</p>
+          <p><strong>Email:</strong>{item.email}</p>
+          <p><strong>Comentario:</strong>{item.comentario}</p>
+
+          <div className="conter">  
+            <div className="boton2">
+             <Button variant="contained" color="error">Eliminar</Button>
+            </div>
+
+            <div className="boton2">
+             <Button variant="contained" color="success">Editar</Button>
+            </div>
+          </div>  
         </div>
+        
         ))}
       </div>
       

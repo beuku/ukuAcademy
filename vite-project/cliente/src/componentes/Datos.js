@@ -106,7 +106,7 @@ const collectData = async (e) =>{
       </div>
       <br />
       
-      <Button variant="contained"  className="btn btn-success"  onClick={collectData} >
+      <Button variant="contained"   onClick={collectData} >
         Guardar
       </Button>
     </form>
