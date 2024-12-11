@@ -6,8 +6,11 @@ import {
     Button,
     Typography,
     Container,
+    MenuItem,
 } from '@mui/material';
 import Grid from '@mui/material/Grid2';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+
 
 interface FormData {
     firstName: string;
@@ -15,6 +18,7 @@ interface FormData {
     email: string;
     phone: string;
     comment: string;
+    gender: string;
 }
 
 const Formulario: React.FC = () => {
@@ -24,9 +28,18 @@ const Formulario: React.FC = () => {
         email: '',
         phone: '',
         comment: '',
+        gender: '',
     });
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value,
+        });
+    };
+
+    const handleChangeSelect = (e: SelectChangeEvent) => {
         const { name, value } = e.target;
         setFormData({
             ...formData,
@@ -122,6 +135,20 @@ const Formulario: React.FC = () => {
                             rows={4}
                             fullWidth
                         />
+                    </Grid>
+                    <Grid size={{ xs: 12 }}>
+                        <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            name="gender"
+                            value={formData.gender}
+                            label="gender"
+                            onChange={handleChangeSelect}
+                            >
+                            <MenuItem value={"masculino"}>Masculino</MenuItem>
+                            <MenuItem value={"femenino"}>Femenino</MenuItem>
+                            <MenuItem value={"otro"}>Otro</MenuItem>
+                        </Select>
                     </Grid>
                     <Grid size={{ xs: 12 }} textAlign="center">
                         <Button type="submit" variant="contained">

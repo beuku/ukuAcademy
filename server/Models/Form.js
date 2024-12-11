@@ -5,7 +5,8 @@ const formSchema = new mongoose.Schema({
     lastName: { type: String, required: true },
     email: { type: String, required: true },
     phone: { type: String, required: true },
-    comment: { type: String, required: true }
+    comment: { type: String, required: true },
+    gender: { type: String, required: true }
 });
 
 const Form = mongoose.model('forms', formSchema);
