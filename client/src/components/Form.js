@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 import './Style.css'
+import { useNavigate } from 'react-router-dom'
 
-
-
-
-export default function Form() {
+function Form() {
 
     const [nombre, setName] = useState("");
     const [apellido, setApellido] = useState("");
     const [rut, setRut] = useState("");
     const [correo, setEmail] = useState("");
     const [comentario, setComentario] = useState("");
+    const navigate = useNavigate(); 
 
 
     const collectData = async (e)=> {
@@ -24,12 +23,22 @@ export default function Form() {
           },
         });
       const result = await response.json();
-    console.log(result);;
-  }catch(error){
-    console.log(error);
-  }
-    }
+      console.log(result);
+      
+      setName("");
+      setApellido("");
+      setRut("");
+      setEmail("");
+      setComentario("");
 
+    } catch (error) {
+      console.log("Error al enviar los datos:", error);
+    }
+  };
+
+  const irFormulario =() => { 
+    navigate("/formulario"); 
+  }
 
 
     return (
@@ -74,7 +83,16 @@ export default function Form() {
                 </div>
 
                 <button onClick={collectData} type="submit" className="btn btn-primary w-100">Guardar</button>
-              </form>
+
+                <button 
+                  type="button" 
+                  onClick={irFormulario}
+                  className="btn btn-secondary w-100 mt-3"> Ir a Formularios </button>
+                </form>
+
+              
          
     );
   }
+
+  export default Form;
