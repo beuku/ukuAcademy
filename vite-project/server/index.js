@@ -26,8 +26,8 @@ app.get('/formularios', async (req, res) => {
 
   
 app.delete('/formularios/:id',  async (req, res) => {
-  const  id  = req.params;
-
+  const  id  = req.query;
+  console.log(req)
   try {
     const deletedFormulario = await Cliente.findByIdAndDelete(id);
 

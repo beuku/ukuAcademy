@@ -10,22 +10,22 @@ const Formulario = () => {
  const [email, setemail] = useState("");
  const [comentario, setcomentario] = useState("");
 
-const collectData = async (e) =>{
-  e.preventDefault();
-  try{
-  const response = await fetch('http://localhost:4000/',{
-    method: 'post',
-    body: JSON.stringify({name, apellido, rut, email, comentario}),
-    headers:{
-      'Content-Type': 'application/json'
-    },
-  });
-  const result = await response.json();
-  console.log(result);
-}catch(error){
-  console.log(error);
-}
-}
+  const collectData = async (e) =>{
+    e.preventDefault();
+    try{
+      const response = await fetch('http://localhost:4000/',{
+        method: 'post',
+        body: JSON.stringify({name, apellido, rut, email, comentario}),
+        headers:{
+          'Content-Type': 'application/json'
+        },
+      });
+      const result = await response.json();
+      console.log(result);
+    }catch(error){
+      console.log(error);
+    }
+  }
 
 
   return (

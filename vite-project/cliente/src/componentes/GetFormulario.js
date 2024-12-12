@@ -7,10 +7,8 @@ import { Button } from '@mui/material'
 function GetFormulario() {
   const [data, setData] = useState([]);
 
-  const handleDelete = async (e, id) =>{
-    e.preventDefault();
+  const handleDelete = async (id) =>{
     try{
-      console.log(`http://localhost:4000/formularios/${id}`)
     const response = await fetch(`http://localhost:4000/formularios/${id}`,{
       method: 'delete',
       
@@ -57,7 +55,7 @@ function GetFormulario() {
 
           <div className="conter">  
             <div className="boton2">
-             <Button variant="contained" color="error"  onClick={handleDelete(this, item._id)} >Eliminar</Button>
+             <Button variant="contained" color="error" onClick={() => handleDelete(item._id)}>Eliminar</Button>
             </div>
 
             <div className="boton2">
