@@ -7,11 +7,11 @@ import { Button } from '@mui/material'
 function GetFormulario() {
   const [data, setData] = useState([]);
 
-  const handle = async (id) =>{
-    
+  const handleDelete = async (e) =>{
+    e.preventDefault();
     try{
-      console.log(`http://localhost:4000/formularios/${id.}`)
-    const response = await fetch(`http://localhost:4000/formularios/${id._id}`,{
+      console.log(`http://localhost:4000/formularios/${e._id}`)
+    const response = await fetch(`http://localhost:4000/formularios/${e._id}`,{
       method: 'delete',
       
     });
@@ -57,7 +57,7 @@ function GetFormulario() {
 
           <div className="conter">  
             <div className="boton2">
-             <Button variant="contained" color="error" defaultValue={item._id} onClick={handle}>Eliminar</Button>
+             <Button variant="contained" color="error" onClick={handleDelete}>Eliminar</Button>
             </div>
 
             <div className="boton2">
