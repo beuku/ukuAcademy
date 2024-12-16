@@ -7,10 +7,13 @@ import {
     Typography,
     Container,
     MenuItem,
+    FormControl,
+    InputLabel,
+    Select,
+    SelectChangeEvent
 } from '@mui/material';
 import Grid from '@mui/material/Grid2';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
-
+import { useNavigate } from 'react-router-dom';
 
 interface FormData {
     firstName: string;
@@ -22,6 +25,7 @@ interface FormData {
 }
 
 const Formulario: React.FC = () => {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState<FormData>({
         firstName: '',
         lastName: '',
@@ -40,21 +44,20 @@ const Formulario: React.FC = () => {
     };
 
     const handleChangeSelect = (e: SelectChangeEvent) => {
-        const { name, value } = e.target;
+        const { value } = e.target;
         setFormData({
             ...formData,
-            [name]: value,
+            gender: value,
         });
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         console.log('Datos del formulario:', formData);
-        // Aquí podrías guardar los datos en Firebase o cualquier backend.
         try {
-            const response = await axios.post('http://localhost:4000/',formData);
+            const response = await axios.post('http://localhost:4000/', formData);
 
-            if(response.status == 200) {
+            if (response.status === 200) {
                 alert('Formulario enviado correctamente');
             }
         } catch (error) {
@@ -63,10 +66,16 @@ const Formulario: React.FC = () => {
         }
     };
 
+    const handleGo = () => {
+        navigate('/Listado');
+    };
+
     return (
-        <Container sx={{
-            paddingY: '2rem',
-        }}>
+        <Container
+            sx={{
+                paddingY: '2rem',
+            }}
+        >
             <Box
                 component="form"
                 onSubmit={handleSubmit}
@@ -79,10 +88,10 @@ const Formulario: React.FC = () => {
                     boxShadow: 3,
                 }}
             >
-                <Typography variant="h5" mb={2} color='#FFFFFF' textAlign="center">
+                <Typography variant="h5" mb={2} color="#FFFFFF" textAlign="center">
                     Formulario de Contacto
                 </Typography>
-                <Grid container spacing={2}>
+                <Grid container spacing={2} >
                     <Grid size={{ xs: 12 }}>
                         <TextField
                             label="Nombre"
@@ -91,7 +100,6 @@ const Formulario: React.FC = () => {
                             onChange={handleChange}
                             fullWidth
                             required
-
                         />
                     </Grid>
                     <Grid size={{ xs: 12 }}>
@@ -123,6 +131,7 @@ const Formulario: React.FC = () => {
                             value={formData.phone}
                             onChange={handleChange}
                             fullWidth
+                            required
                         />
                     </Grid>
                     <Grid size={{ xs: 12 }}>
@@ -134,21 +143,25 @@ const Formulario: React.FC = () => {
                             multiline
                             rows={4}
                             fullWidth
+                            required
                         />
                     </Grid>
                     <Grid size={{ xs: 12 }}>
-                        <Select
-                            labelId="demo-simple-select-label"
-                            id="demo-simple-select"
-                            name="gender"
-                            value={formData.gender}
-                            label="gender"
-                            onChange={handleChangeSelect}
+                        <FormControl fullWidth>
+                            <InputLabel id="demo-simple-select-label">Género</InputLabel>
+                            <Select
+                                labelId="demo-simple-select-label"
+                                id="demo-simple-select"
+                                name="gender"
+                                value={formData.gender}
+                                onChange={handleChangeSelect}
+                                label="Género"
                             >
-                            <MenuItem value={"masculino"}>Masculino</MenuItem>
-                            <MenuItem value={"femenino"}>Femenino</MenuItem>
-                            <MenuItem value={"otro"}>Otro</MenuItem>
-                        </Select>
+                                <MenuItem value="masculino">Masculino</MenuItem>
+                                <MenuItem value="femenino">Femenino</MenuItem>
+                                <MenuItem value="otro">Otro</MenuItem>
+                            </Select>
+                        </FormControl>
                     </Grid>
                     <Grid size={{ xs: 12 }} textAlign="center">
                         <Button type="submit" variant="contained">
@@ -157,6 +170,11 @@ const Formulario: React.FC = () => {
                     </Grid>
                 </Grid>
             </Box>
+                <Grid size={{ xs: 12 }} textAlign="center">
+                    <Button type="submit" variant="contained" onClick={handleGo}>
+                        Ir al Listado
+                    </Button>
+                </Grid>
         </Container>
     );
 };
