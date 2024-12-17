@@ -1,5 +1,135 @@
-.formulario {
+body div div {
+    color: aliceblue;
+    box-sizing: 10px;
+   
+}
 
- overflow-y: hidden;
+h1 {
+  margin: auto;
+  margin-left: 700px;
+  margin-top: -10px;
+  padding: 20px;
+  background-color: rgb(71, 71, 146);
+  
+ 
+ 
+ 
+  mh1 {
+    font-size: 3.2em;
+    line-height: 1.1;
+  }
 
 }
+
+
+
+body div {
+
+margin-top: 20px;
+
+}
+
+
+li {
+
+
+  background-color: rgba(129, 129, 129, 0.8);
+  border-radius: 5px;
+  box-shadow: rgba(126, 123, 123, 0.8);
+  border: rgba(138, 131, 131, 0.8);
+  padding: 20px;
+  margin-top: 100px;
+  max-width: 500px;
+  border: 1px solid #242424;
+  padding: 10px;
+  resize: none; 
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  overflow: auto;
+
+  
+
+
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  margin-left: 700px;
+
+
+}
+button.wea1 {
+  background-color: rgba(173, 13, 13, 0.8);
+  color: white; 
+  border: none; 
+  padding: 10px 20px; 
+  border-radius: 5px; 
+  font-size: 16px; 
+  cursor: pointer; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+  transition: box-shadow 0.2s ease, transform 0.2s ease; 
+}
+
+button.wea1:active {
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4); 
+  transform: translateY(2px); 
+}
+
+button.wea1:hover {
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); 
+}
+
+
+
+
+button.wea2 {
+  background-color: rgba(14, 161, 70, 0.8);
+  color: white; /* Color del texto */
+  border: none; /* Sin borde */
+  padding: 10px 20px; /* Espaciado interno */
+  border-radius: 5px; /* Bordes redondeados */
+  font-size: 16px; /* Tamaño del texto */
+  cursor: pointer; /* Cambia el cursor a puntero al pasar el mouse */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra inicial */
+  transition: box-shadow 0.2s ease, transform 0.2s ease; /* Animación suave */
+
+  margin: 20px;
+}
+
+/* Efecto cuando el botón es presionado */
+button.wea2:active {
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4); /* Sombra más pronunciada */
+  transform: translateY(2px); /* Mueve el botón un poco hacia abajo */
+}
+
+/* Efecto cuando el cursor pasa por encima del botón */
+button.wea2:hover {
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* Sombra leve cuando se pasa el cursor */
+}
+
+* Contenedor principal */
+.edit-container {
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo transparente */
+  padding: 20px;
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra suave */
+  color: white;
+  margin: auto; /* Centra el contenedor */
+  width: 80%; /* Ajusta el ancho */
+  max-width: 500px; /* Máximo tamaño */
+  text-align: left;
+}
+
+/* Campos de entrada */
+li input {
+  display: block; /* Coloca los inputs en bloques */
+  width: 100%; /* Ancho completo */
+  padding: 8px;
+  margin-bottom: 15px; /* Espaciado entre campos */
+  border: 1px solid #ccc; /* Borde sutil */
+  border-radius: 5px;
+  box-sizing: border-box; /* Incluye padding en el tamaño */
+}
+

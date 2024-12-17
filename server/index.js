@@ -18,6 +18,49 @@ app.post("/", async(req,res)=> {
 })
 
 
+app.delete("/formularios/:id", async (req, res) => {
+    try {
+        const { id } = req.params;  // Obtenemos el ID de los parámetros
+        const result = await Users.findByIdAndDelete(id);  // Eliminamos el formulario por ID
+        
+        res.status(200).json({ message: 'Formulario ELIMINAAAADOOOOO' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Error al eliminar el formulario");
+    }
+})
+
+
+
+app.put("/formularios/:id", async (req, res) => {
+    try {
+        const { id } = req.params;
+        const updatedData = req.body;
+        const result = await Users.findByIdAndUpdate(id, updatedData, { new: true });
+        res.status(200).json(result);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Error al actualizar el formulario");
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 app.get("/formularios", async (req, res) => {
     try {
         const formularios = await Users.find(); 
