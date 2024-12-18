@@ -79,6 +79,7 @@ const Listado: React.FC = () => {
       alert('Error al eliminar los elementos');
     }
   };
+  
   const handleBack = async()=>{
     navigate("/");
   };
