@@ -33,21 +33,13 @@ const Formulario = () => {
     <>
       <Headercom></Headercom>
       <div className="comtainer">
-        <form>
+        <form >
           <h3 className="text-center pt-3">Formulario</h3>
-          <DataFrom
-          name={name}
-          setname={setname}
-          apellido={apellido}
-          setapellido={setapellido}
-          rut={rut}
-          setrut={setrut}
-          email={email}
-          setemail={setemail}
-          comentario={comentario}
-          setcomentario={setcomentario}
-          />
-          
+          <DataFrom datas="Nombre" type="text" placeholder="Escribe tu nombre" value={setname.name} onChange={(e)=> setname(e.target.value)} />
+          <DataFrom datas="Apellido" type="text" placeholder="Escribe tu apellido" value={setapellido.apellido} onChange={(e)=> setapellido(e.target.value)} />
+          <DataFrom datas="Rut" type="text" placeholder="Escribe tu rut" value={setrut.rut} onChange={(e)=> setrut(e.target.value)} />
+          <DataFrom datas="Email" type="text" placeholder="Escribe tu correo" value={setemail.email} onChange={(e)=> setemail(e.target.value)} />
+          <DataFrom datas="Comentario" type="text" placeholder="Por favor deja un comentario" value={setcomentario.comentario} onChange={(e)=> setcomentario(e.target.value)} />
           <Button variant="contained"   onClick={collectData}>
             Guardar
           </Button>

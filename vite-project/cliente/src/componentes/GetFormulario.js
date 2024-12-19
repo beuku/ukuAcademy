@@ -2,7 +2,7 @@ import React, {useEffect, useState } from "react";
 import './style.css'
 import Headercom from "./Header"
 import { TextField, Button } from '@mui/material'
-
+import CompEdit from "./DataEdit";
 
 
 
@@ -113,49 +113,15 @@ function GetFormulario() {
         </div> 
 
         {editForm && (
-          <div>
+          <div >
             <h3>Editar Formulario</h3>
-            <form> 
+            <form className="comtainer"> 
 
-              <label>Nombre:</label>
-              <TextField
-                type="text"
-                name="name"
-                value={editForm.name || ""}
-                onChange={handleChange}
-              />
-
-              <label>Apellido:</label>
-              <TextField
-                type="text"
-                name="apellido"
-                value={editForm.apellido || ""}
-                onChange={handleChange}
-              />
-
-              <label>Rut:</label>
-              <TextField
-                type="text"
-                name="rut"
-                value={editForm.rut || ""}
-                onChange={handleChange}
-              />
-
-              <label>Email:</label>
-              <TextField
-                type="text"
-                name="email"
-                value={editForm.email || ""}
-                onChange={handleChange}
-              />
-
-              <label>Comentario:</label>
-              <TextField
-                type="text"
-                name="comentario"
-                value={editForm.comentario || ""}
-                onChange={handleChange}
-              />
+              <CompEdit edit="Nombre:" name="name" type="text" value={editForm.name || ""} onChange={handleChange} />
+              <CompEdit edit="Apellido" name="apellido" type="text" value={editForm.apellido || ""} onChange={handleChange} />
+              <CompEdit edit="Rut:" name="rut" type="text" value={editForm.rut || ""} onChange={handleChange} />
+              <CompEdit edit="Email:" name="email" type="text" value={editForm.email || ""} onChange={handleChange} />
+              <CompEdit edit="Comentario:" name="comentario" type="text" value={editForm.comentario || ""} onChange={handleChange} />
 
               <div style={{ marginTop: "20px" }}>
                 <Button variant="contained" color="success" onClick={() => {edittData(editForm._id);  window.location.reload();}}>
