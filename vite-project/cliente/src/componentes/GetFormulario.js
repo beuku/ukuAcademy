@@ -15,18 +15,16 @@ function GetFormulario() {
     try {
       console.log(editForm)
       const response = await fetch(`http://localhost:4000/formularios/${id}`, {
-        
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(editForm), 
       });
-      if (!response.ok) throw new Error("Error al actualizar el formulario");
 
+      if (!response.ok) throw new Error("Error al actualizar el formulario");
       const updatedForm = await response.json();
 
-      
       setData((prevData) =>
         prevData.map((form) => (form._id === id ? updatedForm : form))
       );
@@ -85,96 +83,93 @@ function GetFormulario() {
   
 
   return (
-   <>
-   <Headercom></Headercom>
-    <div>
- <h3>GetFormulario</h3>
-      <div>
-        {data.map((item, index)=>(
+    <>
+      <Headercom></Headercom>
+        <div>
+          <h3>GetFormulario</h3>
+          <div>
+            {data.map((item, index)=>(
+            <div key={index} className="item">
+              <p><strong>ID:</strong>{item._id}</p>
+              <p><strong>Nombre:</strong>{item.name}</p>
+              <p><strong>Apellido:</strong>{item.apellido}</p>
+              <p><strong>Rut:</strong>{item.rut}</p>
+              <p><strong>Email:</strong>{item.email}</p>
+              <p><strong>Comentario:</strong>{item.comentario}</p>
+
+              <div className="conter">  
+                <div className="boton2">
+                  <Button variant="contained" color="error" onClick={() => {handleDelete(item._id); window.location.reload();}}>Eliminar</Button>
+                </div>
+
+                <div className="boton1">
+                  <Button variant="contained" color="success"  onClick={() => handleEdit(item)}>Editar</Button>
+                </div>
+              </div>  
+            </div>
           
-        <div key={index} className="item">
-          <p><strong>ID:</strong>{item._id}</p>
-          <p><strong>Nombre:</strong>{item.name}</p>
-          <p><strong>Apellido:</strong>{item.apellido}</p>
-          <p><strong>Rut:</strong>{item.rut}</p>
-          <p><strong>Email:</strong>{item.email}</p>
-          <p><strong>Comentario:</strong>{item.comentario}</p>
+          ))}
+          </div>
+        </div> 
 
-          <div className="conter">  
-            <div className="boton2">
-             <Button variant="contained" color="error" onClick={() => {handleDelete(item._id); window.location.reload();}}>Eliminar</Button>
-            </div>
+        {editForm && (
+          <div>
+            <h3>Editar Formulario</h3>
+            <form> 
 
-            <div className="boton2">
-             <Button variant="contained" color="success"  onClick={() => handleEdit(item)}>Editar</Button>
-            </div>
-          </div>  
-        </div>
-        
-        )) }
-      </div>
-      
-      </div> 
+              <label>Nombre:</label>
+              <TextField
+                type="text"
+                name="name"
+                value={editForm.name || ""}
+                onChange={handleChange}
+              />
 
-      {editForm && (
-  <div>
-    <h3>Editar Formulario</h3>
-    <form> 
+              <label>Apellido:</label>
+              <TextField
+                type="text"
+                name="apellido"
+                value={editForm.apellido || ""}
+                onChange={handleChange}
+              />
 
-      <label>Nombre:</label>
-      <TextField
-        type="text"
-        name="name"
-        value={editForm.name || ""}
-        onChange={handleChange}
-      />
+              <label>Rut:</label>
+              <TextField
+                type="text"
+                name="rut"
+                value={editForm.rut || ""}
+                onChange={handleChange}
+              />
 
-      <label>Apellido:</label>
-      <TextField
-        type="text"
-        name="apellido"
-        value={editForm.apellido || ""}
-        onChange={handleChange}
-      />
+              <label>Email:</label>
+              <TextField
+                type="text"
+                name="email"
+                value={editForm.email || ""}
+                onChange={handleChange}
+              />
 
-      <label>Rut:</label>
-      <TextField
-        type="text"
-        name="rut"
-        value={editForm.rut || ""}
-        onChange={handleChange}
-      />
+              <label>Comentario:</label>
+              <TextField
+                type="text"
+                name="comentario"
+                value={editForm.comentario || ""}
+                onChange={handleChange}
+              />
 
-      <label>Email:</label>
-      <TextField
-        type="text"
-        name="email"
-        value={editForm.email || ""}
-        onChange={handleChange}
-      />
+              <div style={{ marginTop: "20px" }}>
+                <Button variant="contained" color="success" onClick={() => {edittData(editForm._id);  window.location.reload();}}>
+                  Guardar
+                </Button>
 
-      <label>Comentario:</label>
-      <TextField
-        type="text"
-        name="comentario"
-        value={editForm.comentario || ""}
-        onChange={handleChange}
-      />
-
-      <div style={{ marginTop: "20px" }}>
-        <Button variant="contained" color="success" onClick={() => {edittData(editForm._id);  window.location.reload();}}>
-          Guardar
-        </Button>
-        <Button variant="contained" color="error" onClick={() => setEditForm(null)}>
-          Cancelar
-        </Button>
-      </div>
-    </form>
-  </div>
-)}
-      </>
-
-      
+                <Button variant="contained" color="error" onClick={() => setEditForm(null)}>
+                  Cancelar
+                </Button>
+              </div>
+            </form>
+          </div>
+        )}
+    </>  
   );
 }
 
