@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './Style.css';
 import { useNavigate } from 'react-router-dom';
+import Textfield from './Textfield';
+
 
 function Form() {
   const [formData, setFormData] = useState({
@@ -46,83 +48,25 @@ function Form() {
 
   return (
     <form onSubmit={collectData}>
-      <div className="mb-3">
-        <label htmlFor="nombre" className="form-label">Nombre</label>
-        <input
-          type="text"
-          className="form-control"
-          id="nombre"
-          name="nombre"
-          placeholder="Ingresa tu nombre"
-          value={formData.nombre}
-          onChange={handleInputChange}
-        />
-      </div>
 
-      <div className="mb-3">
-        <label htmlFor="apellido" className="form-label">Apellido</label>
-        <input
-          type="text"
-          className="form-control"
-          id="apellido"
-          name="apellido"
-          placeholder="Ingresa tu apellido"
-          value={formData.apellido}
-          onChange={handleInputChange}
-        />
-      </div>
+      <Textfield parametro="nombre" type="text" placeholder="ingrese su nombre" value={formData.nombre} onChange={handleInputChange} ></Textfield>
+      <Textfield parametro="apellido" type="text" placeholder="ingrese su apellido" value={formData.apellido} onChange={handleInputChange}  ></Textfield>
+      <Textfield parametro="rut" type="text" placeholder="ingrese su rut" value={formData.rut} onChange={handleInputChange}  ></Textfield>
+      <Textfield parametro="correo" type="email" placeholder="ingrese su correo" value={formData.correo} onChange={handleInputChange}  ></Textfield>
+      <Textfield  parametro="comentario"  placeholder="ingrese su comentario" type="textarea" rows="5" value={formData.comentario} onChange={handleInputChange}/>
 
-      <div className="mb-3">
-        <label htmlFor="rut" className="form-label">RUT</label>
-        <input
-          type="text"
-          className="form-control"
-          id="rut"
-          name="rut"
-          placeholder="Ingresa tu RUT"
-          value={formData.rut}
-          onChange={handleInputChange}
-        />
-      </div>
 
-      <div className="mb-3">
-        <label htmlFor="correo" className="form-label">Correo Electrónico</label>
-        <input
-          type="email"
-          className="form-control"
-          id="correo"
-          name="correo"
-          placeholder="Ingresa tu correo"
-          value={formData.correo}
-          onChange={handleInputChange}
-        />
-      </div>
 
-      <div className="mb-3">
-        <label htmlFor="comentario" className="form-label">Comentario</label>
-        <textarea
-          className="form-control"
-          id="comentario"
-          name="comentario"
-          rows="3"
-          placeholder="Escribe un comentario"
-          value={formData.comentario}
-          onChange={handleInputChange}
-        />
-      </div>
 
-      <button type="submit" className="btn btn-primary w-100">
-        Guardar
-      </button>
+      <button type="submit" className="btn btn-primary w-100"> Guardar </button>
 
       <button
         type="button"
         onClick={irFormulario}
-        className="btn btn-secondary w-100 mt-3"
-      >
-        Ir a Formularios
-      </button>
+        className="btn btn-secondary w-100 mt-3" > Ir a Formularios </button>
+      
     </form>
+    
   );
 }
 

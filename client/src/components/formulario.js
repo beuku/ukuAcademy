@@ -23,8 +23,6 @@ function Formulario() {
         fetchData();
     }, []);
 
-
-
     const handleDelete = async (id) => {
         try {
             const response = await fetch(`http://localhost:4000/formularios/${id}`, {
@@ -40,13 +38,10 @@ function Formulario() {
         }
     };
 
-   
     const handleEdit = (form) => {
         setEditId(form._id); 
         setEditedForm(form); 
     };
-
-
 
     const handleSave = async (id) => {
         try {
@@ -68,13 +63,10 @@ function Formulario() {
         }
     };
 
-
-
     const handleChange = (e) => {
         const { name, value } = e.target;
         setEditedForm({ ...editedForm, [name]: value });
     };
-
 
     const renderEditForm = () => (  <>
 
@@ -98,9 +90,6 @@ function Formulario() {
             <button className="wea2" onClick={() => setEditId(null)}>Cancelar</button>
         </>
     );
-
-
-
     const renderViewForm = (form) => (
         <>
             <p><strong>Nombre:</strong> {form.nombre}</p>

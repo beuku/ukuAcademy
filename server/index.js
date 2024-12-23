@@ -47,20 +47,6 @@ app.put("/formularios/:id", async (req, res) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 app.get("/formularios", async (req, res) => {
     try {
         const formularios = await Users.find(); 
